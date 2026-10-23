@@ -1,0 +1,16 @@
+# Dataset, cache và kết quả chạy
+/data/
+/cache/
+/outputs/
+*.pdf
+# Môi trường Python và file tạm
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Thông tin xác thực
+.env
+.env.*
+kaggle.json

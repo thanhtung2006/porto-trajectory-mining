@@ -1,0 +1,16 @@
+# Environment used to execute porto_region_eda.ipynb, Python 3.13 / Windows / CPU.
+numpy==2.1.3
+pandas==2.3.2
+pyarrow==23.0.1
+shapely==2.2.0
+pyproj==3.8.0
+geopandas==1.2.0
+matplotlib==3.10.0
+psutil==7.1.0
+folium==0.20.0
+branca==0.8.2
+ipython>=8
+ipykernel>=6.29
+nbformat>=5.10
+nbclient>=0.10
+tzdata>=2025.2

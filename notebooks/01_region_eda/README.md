@@ -1,3 +1,7 @@
+> Notebook cùng thư mục: [porto_region_eda.ipynb](porto_region_eda.ipynb). [Về trang chủ repo](../../README.md).
+
+> Các đường dẫn `data/`, `cache/`, `outputs/` trong tài liệu đều tính từ thư mục gốc repo. Notebook tự tìm thư mục gốc dù mở từ thư mục con. Các lệnh terminal trong README chạy từ gốc repo.
+
 # Khảo sát vùng Porto bằng GPS
 
 Mở `porto_region_eda.ipynb`. Đây là notebook riêng; `porto_trajectory_mining.ipynb` được giữ nguyên.
@@ -12,7 +16,7 @@ Hỗ trợ tên cột `DAY_TYPE` của file hiện tại và alias `DAYTYPE`, kh
 ## 2. Chạy lần đầu
 
 Chọn kernel Python đã cài dependencies rồi **Restart Kernel → Run All**.
-Cài package thiếu bằng cell B hoặc `python -m pip install -r requirements_region_eda.txt`.
+Cài package thiếu bằng cell B hoặc `python -m pip install -r requirements/requirements_region_eda.txt`.
 
 Mặc định đọc cấu hình notebook cũ để dùng giai đoạn train: **01/07/2013 đến trước 05/08/2013 theo Lisbon**.
 Lấy **10.000 chuyến**, 35% bắt đầu cao điểm sáng, 35% chiều, 30% ngoài cao điểm; phân bổ qua các ngày.
@@ -59,7 +63,8 @@ Bạn cũng có thể nhập danh sách tại `CFG['regions']` ở cell A và gi
 ## 5. Chạy lại khi đổi vùng
 
 Giữ kernel đang chạy rồi chạy **R1 → R2**. Không cần đọc lại CSV, lấy mẫu hoặc tạo lưới.
-Xem `regions/<region_key>/comparison.csv`, các bảng thời gian, phân bố ô và các phần GPS trong vùng.
+Xem `outputs/csv/region_eda/<run_id>/regions/<region_key>/comparison.csv` và các bảng CSV thời gian/phân bố ô cùng thư mục.
+Các bảng Parquet và các phần GPS trong vùng vẫn ở `regions/<region_key>/` của lần chạy.
 `latest_regions.json` ghi bbox thực tế đã nhập; `08_regions_overlay.html` vẽ các ranh giới đó.
 
 `n_trips_points_inside` là số chuyến có GPS thực trong vùng. `n_trips_chord_only` là các chuyến chỉ có
@@ -85,4 +90,26 @@ Hoặc Restart/Run All: mẫu và GPS vẫn lấy từ cache. Cache metadata/m�
 - Không ước lượng số cạnh đường hoặc chọn vùng cuối. Mốc 5.000–7.000 cạnh phải kiểm tra ở giai đoạn road graph sau.
 
 Chi tiết xác minh: `outputs/region_eda/notebook_verification.json`, `integration_verification.json`,
-và `logic_tests.csv` trong thư mục lần chạy. Notebook lưu phiên bản thư viện và nguồn tham khảo chính thức.
+và `outputs/csv/region_eda/<run_id>/logic_tests.csv`. Notebook lưu phiên bản thư viện và nguồn tham khảo chính thức.
+
+## 7. Nơi lưu CSV
+
+Toàn bộ CSV được gom vào `outputs/csv/`, phân theo notebook, lần chạy và loại kết quả:
+
+```text
+outputs/
+├── csv/
+│   └── region_eda/<run_id>/
+│       ├── grid_cells.csv
+│       ├── metadata_*.csv
+│       ├── candidate_regions/     # các bảng so sánh vùng ứng viên
+│       └── regions/<region_key>/ # các bảng của vùng nhập ở R1
+└── region_eda/<run_id>/
+    ├── maps/                     # HTML
+    ├── figures/                  # PNG
+    ├── candidate_regions/        # bản đồ và báo cáo vùng ứng viên
+    └── *.parquet                 # bảng dùng để xử lý tiếp
+```
+
+Cell **B1 — Bố trí kết quả CSV** định tuyến nơi xuất bảng, không đổi khóa cache xử lý dữ liệu.
+Nếu kernel đang mở từ trước khi sửa notebook, chạy cell B1 trước khi xuất lại bảng hoặc chạy R1/R2.

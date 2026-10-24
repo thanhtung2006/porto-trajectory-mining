@@ -1,3 +1,7 @@
+> Notebook cùng thư mục: [porto_trajectory_mining.ipynb](porto_trajectory_mining.ipynb). [Về trang chủ repo](../../README.md).
+
+> Các đường dẫn `data/`, `cache/`, `outputs/` trong tài liệu đều tính từ thư mục gốc repo. Notebook tự tìm thư mục gốc dù mở từ thư mục con. Các lệnh terminal trong README chạy từ gốc repo.
+
 # Chạy notebook Porto
 
 Mở `porto_trajectory_mining.ipynb` bằng JupyterLab hoặc VS Code và chọn Python kernel đã cài dependencies.
@@ -5,7 +9,7 @@ Mọi hàm xử lý nằm trong notebook. Không có web/API/demo định tuyế
 
 ## Chạy smoke test
 
-1. Cài `requirements_porto.txt` bằng `python -m pip install -r requirements_porto.txt`, hoặc dùng cell cài đặt trong notebook.
+1. Cài `requirements_porto.txt` bằng `python -m pip install -r requirements/requirements_porto.txt`, hoặc dùng cell cài đặt trong notebook.
 2. Đặt `train.csv` đầy đủ của [cuộc thi Kaggle](https://www.kaggle.com/competitions/pkdd-15-predict-taxi-service-trajectory-i/data) vào `data/`.
    Có thể giữ ZIP chứa `train.csv` rồi sửa `CFG['data_path']`; notebook không yêu cầu thông tin xác thực Kaggle.
 3. Trong cell cấu hình đầu tiên, giữ `mode='smoke_test'`, số chuyến 300. Kiểm tra `root`, `data_path`, `bbox`,

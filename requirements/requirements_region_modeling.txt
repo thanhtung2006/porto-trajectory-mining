@@ -1,0 +1,4 @@
+# Reuse the locally validated CPU matching environment.
+-r requirements_region_pilot.txt
+scikit-learn==1.7.2
+threadpoolctl==3.6.0

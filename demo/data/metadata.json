@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "source_run": "c01cada311f38e85a9d4",
+  "graph_hash": "5d2646d5cee719fe9dd8837220fd9e65d5149acd774336c1e9b3cf2171ecb58c",
+  "generated_utc": "2026-10-24T11:23:43.200685+00:00",
+  "region": "C 8×8 km · Porto",
+  "bbox": [
+    -8.654504338104756,
+    41.12745663346633,
+    -8.558716252527459,
+    41.199844416439696
+  ],
+  "timezone": "Europe/Lisbon",
+  "train_start": "2013-07-01T00:00:00+01:00",
+  "train_end_exclusive": "2013-08-05T00:00:00+01:00",
+  "hour_width": 1,
+  "day_grouping": "weekday_weekend",
+  "slowdown_ratio_threshold": 0.6,
+  "min_trips": 3,
+  "min_taxis": 3,
+  "min_days": 3,
+  "min_recurrent_frequency": 0.5,
+  "n_edges": 15882,
+  "n_profile_rows": 762336,
+  "geometry_simplification_m": 2.0,
+  "metrics": [
+    {
+      "method": "B0",
+      "group": "all",
+      "n_routes": 1543,
+      "n_trips": 1320,
+      "MAE_s": 195.9543594525606,
+      "RMSE_s": 297.09370980106394,
+      "median_AE_s": 148.751422999,
+      "WAPE": 0.46539310515555066
+    },
+    {
+      "method": "B1",
+      "group": "all",
+      "n_routes": 1543,
+      "n_trips": 1320,
+      "MAE_s": 106.4378694103908,
+      "RMSE_s": 227.41183820067886,
+      "median_AE_s": 54.30974899699993,
+      "WAPE": 0.25279075540564855
+    },
+    {
+      "method": "M1",
+      "group": "all",
+      "n_routes": 1543,
+      "n_trips": 1320,
+      "MAE_s": 92.62092918258134,
+      "RMSE_s": 214.61517579920374,
+      "median_AE_s": 49.891525986999994,
+      "WAPE": 0.21997541649543853
+    },
+    {
+      "method": "M2",
+      "group": "all",
+      "n_routes": 1543,
+      "n_trips": 1320,
+      "MAE_s": 119.50185687535776,
+      "RMSE_s": 237.2007685631102,
+      "median_AE_s": 70.752319,
+      "WAPE": 0.2838178257347782
+    }
+  ],
+  "evaluation_coverage": {
+    "selected_complete_source_test_trips": 2000,
+    "boundary_excluded": 2,
+    "selected_with_clean_gps_in_region": 1909,
+    "trips_with_qa_in_region": 1326,
+    "trips_with_eligible_routes": 1320,
+    "evaluated_test_trips": 1320,
+    "eligible_test_routes": 1543,
+    "common_evaluated_routes": 1543,
+    "prediction_failure_rows": 0,
+    "evaluated_fraction_all_selected": 0.66,
+    "evaluated_fraction_selected_region": 0.6914614981665793,
+    "evaluated_duration_s": 649682.114508857,
+    "selected_original_duration_s": 1382760.0,
+    "retained_fraction_of_selected_full_trip_time": 0.4698444520443584,
+    "scope": "Contiguous retained in-region segments. Time denominator includes outside-region and rejected portions of selected full trips; not a region traffic coverage estimate."
+  },
+  "source_verification_checks": 42,
+  "scope": "Aggregated train GPS taxi slowdown patterns; no raw GPS or trip/taxi IDs; no independent congestion labels.",
+  "dataset_url": "https://www.kaggle.com/competitions/pkdd-15-predict-taxi-service-trajectory-i/data",
+  "map_attribution": "Map data © OpenStreetMap contributors (ODbL).",
+  "files": {
+    "network.geojson.gz": {
+      "sha256": "c8b031d0b24352a083a47bf91f9a31c669e28f9080ceacab34e010be00a9ee0f",
+      "bytes": 402417
+    },
+    "edges.parquet": {
+      "sha256": "5b4929f0692635bdac6c737a360e6901caf69c8872b2a4ea3110dca6cfedd4e1",
+      "bytes": 312810
+    },
+    "profiles.parquet": {
+      "sha256": "7c72498ecdc942f7dbd524d4a283f4d6a5c1b06c58e00b1b2d752aa081c362d9",
+      "bytes": 3571076
+    },
+    "recurrent_clusters.parquet": {
+      "sha256": "62d563c4eaac92c17650aa2d0589aebb78e1f7eea6e19d20c021dea5607d2eb8",
+      "bytes": 10178
+    }
+  }
+}
